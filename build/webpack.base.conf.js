@@ -17,7 +17,7 @@ module.exports = {
   output: {
     filename: '[name].[hash:8].js',
     path: resolve('dist'),
-    publicPath: '/'
+    publicPath: isProd ? './' : '/'
   },
   // resolve: {
   //   alias: {
@@ -35,7 +35,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              // 改动
               modules: true, // 新增对css modules的支持
               localIdentName: '[name]-[local]-[hash:base64:5]'
             },
@@ -51,7 +50,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              // 改动
               modules: true, // 新增对css modules的支持
               localIdentName: '[name]-[local]-[hash:base64:5]'
             },
@@ -67,12 +65,10 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              // 改动
               modules: true, // 新增对css modules的支持
               localIdentName: '[name]-[local]-[hash:base64:5]'
             },
           },
-          // 'css-loader?module&localIdentName=[name]_[local]-[hash:base64:5]',
           'postcss-loader',
           'less-loader'
         ]

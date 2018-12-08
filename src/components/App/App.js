@@ -13,7 +13,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [1, 2, 4, 5, 10]
+      list: [1, 2, 4, 5, 10, 1]
     }
   }
   handleClick = () => {
