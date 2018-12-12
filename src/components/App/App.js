@@ -25,9 +25,13 @@ export default class App extends Component {
     return (
       <div onClick={this.handleClick}>
         <div className={styles.wrap}></div>
+        <div>55555</div>
         <img src={img} height="400" />
         {
           this.state.list.map(item => <span key={item} className={styles.item}>{item}</span>)
+        }
+        {
+          process.env.NODE_ENV !== 'development' && 6666
         }
       </div>
     )
