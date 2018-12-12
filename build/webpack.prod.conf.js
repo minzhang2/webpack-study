@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'production'
-
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -16,7 +14,8 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
   devtool: '#source-map',
   output: {
     filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[id].[chunkhash:8].js'
+    chunkFilename: 'static/js/[id].[chunkhash:8].js',
+    publicPath: ''
   },
   module: {
     rules: utils.styleLoaders({

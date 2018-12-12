@@ -7,7 +7,7 @@ exports.cssLoaders = function (options) {
     loader: 'css-loader',
     options: {
       importLoaders: 1,
-      modules: true, // 新增对css modules的支持
+      modules: true, // css modules
       localIdentName: '[name]-[local]-[hash:base64:5]',
       minimize: options.minimize,
       sourceMap: options.sourceMap,
