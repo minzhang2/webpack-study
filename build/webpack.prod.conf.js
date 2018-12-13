@@ -12,6 +12,9 @@ const utils = require('./utils');
 
 const prodWebpackConfig = merge(baseWebpackConfig, {
   devtool: '#source-map',
+  entry: {
+    app: './src/index.js',
+  },
   output: {
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[id].[chunkhash:8].js',

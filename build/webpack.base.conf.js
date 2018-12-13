@@ -12,14 +12,6 @@ const resolve = (dir) => path.join(__dirname, '..', dir);
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/index.js',
-  },
-  output: {
-    filename: '[name].js',
-    path: resolve('dist'),
-    publicPath: '/'
-  },
   // resolve: {
   //   extensions: ['.js', '.jsx', '.json']
   //   alias: {
@@ -27,7 +19,11 @@ module.exports = {
   //     'assets': resolve('src/assets')
   //   }
   // },
-  devtool: 'cheap-module-eval-source-map',
+  output: {
+    filename: '[name].js',
+    path: resolve('dist'),
+    publicPath: '/'
+  },
   module: {
     rules: [
       {
