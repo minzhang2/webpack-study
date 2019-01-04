@@ -12,13 +12,13 @@ const resolve = (dir) => path.join(__dirname, '..', dir);
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  // resolve: {
-  //   extensions: ['.js', '.jsx', '.json']
-  //   alias: {
-  //     '@': resolve('src/components'),
-  //     'assets': resolve('src/assets')
-  //   }
-  // },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json']
+    // alias: {
+    //   '@': resolve('src/components'),
+    //   'assets': resolve('src/assets')
+    // }
+  },
   output: {
     filename: '[name].js',
     path: resolve('dist'),

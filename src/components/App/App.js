@@ -25,7 +25,7 @@ export default class App extends Component {
     return (
       <div onClick={this.handleClick}>
         <div className={styles.wrap}></div>
-        <div>5555225</div>
+        <div>4444</div>
         <img src={img} height="400" />
         {
           this.state.list.map(item => <span key={item} className={styles.item}>{item}</span>)

@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const utils = require('./utils');
@@ -15,6 +16,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devtool: 'cheap-module-eval-source-map',
   // react热更新
   entry: [
+    'webpack-dev-server/client',
     'webpack/hot/dev-server',
     './src/index.js',
   ],
@@ -38,8 +40,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
+    // copy custom static assets
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, '../dist/static'),
+    //     to: path.resolve(__dirname, '../dist'),
+    //     ignore: ['.*']
+    //   }
+    // ])
   ],
   devServer: {
+    contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
     port: config.port,
     historyApiFallback: {
@@ -48,7 +59,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ],
     },
     // historyApiFallback: true,
-    // inline: true,
+    inline: true,
     hot: true,
     hotOnly: true,
     // open: true,
